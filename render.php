@@ -5,7 +5,7 @@ header('X-XSS-Protection', '0');
 if (!empty($_POST) && isset($_POST['html'])) {
 	$html = base64_decode($_POST['html']);
 
-	if (isset($_POST['css-test'])) {
+	if (isset($_POST['css'])) {
 		$pos = stripos($html, '</head>');
 		$html = substr($html, 0, $pos) . '<style>' . base64_decode($_POST['css']) . '</style>' . substr($html, $pos);
 	}
